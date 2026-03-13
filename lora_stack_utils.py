@@ -137,7 +137,7 @@ class SelectLists:
             mergeList = [] #未選択時にエラーになるのを防ぐため
             result = ""
 
-        print(f"\n[SelectLists Debug] 実際の出力リスト: {mergeList}\n")
+        print(f"\n[SelectLists] : {mergeList}\n")
 
         # UI更新用のデータと実際の出力データの両方を返す
         return {"ui": {
@@ -402,7 +402,6 @@ class SelectTexts:
         print(f"[{self.TITLE}] INPUT ANY: {ANY}")
         print(f"[{self.TITLE}] RECEIVED STATES: {states}")
         print(f"[{self.TITLE}] RESULT: {result}")
-
         # UI側にテキストリスト（表示用）と状態、さらにグループ構造を送信
         return {"ui": {
                     "text_list": display_items, 
