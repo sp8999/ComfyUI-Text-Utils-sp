@@ -134,7 +134,10 @@ class SelectLists:
             mergeList = utils.convert_array(included_units)
             result = ", ".join([str(v) for v in mergeList])
         else:
+            mergeList = [] #未選択時にエラーになるのを防ぐため
             result = ""
+
+        print(f"\n[SelectLists Debug] 実際の出力リスト: {mergeList}\n")
 
         # UI更新用のデータと実際の出力データの両方を返す
         return {"ui": {
