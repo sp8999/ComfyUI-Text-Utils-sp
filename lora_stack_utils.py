@@ -68,6 +68,7 @@ class SelectLists:
     TITLE="SelectLists"
     RETURN_TYPES = (ANY_TYPE, "STRING",)
     RETURN_NAMES = ("list", "text",)
+    OUTPUT_IS_LIST = (True, False)
     INPUT_IS_LIST = True
     FUNCTION = "run"
     CATEGORY = "text_utils_sp"
@@ -143,7 +144,7 @@ class SelectLists:
                     "result_text": [""],
                     "is_excluded_mode": [True]
                 },
-                "result": ([mergeList] if included_units else [[]], [result])}
+                "result": (mergeList, result)}
 
 #---------------------------------------------------------------
 
