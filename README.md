@@ -7,6 +7,17 @@ LoraTagsOnlyと連携しての自動タグ入力、ただのテキスト操作�
 ---
 
 ## <a name="japanese-version"></a>🇯🇵 日本語 (Japanese)
+
+## インストール方法
+
+1. ComfyUI の `custom_nodes` フォルダに移動します。
+2. powerShellかターミナルを開き以下のコマンドでリポジトリをクローンします。
+   ```bash
+   git clone https://github.com/sp8999/ComfyUI-Text-Utils-sp.git
+   ```
+3. ComfyUI を再起動します。ノードは `text_utils_sp` カテゴリから利用可能になります。
+
+
 ## 既知の問題
 Nodes2.0で調整しています。v1でも動作はしますが、一部のウィジェットでサイズがおかしくなります
 
@@ -15,94 +26,126 @@ Nodes2.0で調整しています。v1でも動作はしますが、一部のウ�
 ### 1. 動的テキスト結合 (Dynamic Text Combiners)
 複数のテキスト入力を増減可能な動的に結合するノード群です。
 
-* **Weight Multi Text (`weightMultiText`)**
-  個別のウェイト（重み付け）スライダーを持ち、テキストを動的に結合できます。プロンプトの各要素に特定の強調を行いたい場合に便利です。
+* **Weight3Text**
+  個別のウェイト（重み付け）スライダーを持ち、テキストを結合して出力します。
+  プロンプトの各要素に特定の強調を行いたい場合に便利です。
+  <br><img src="./img/weight3Text.png" width="400px"><br>
+
+* **WeightMultiText**
+  マルチ接続が可能になるタイプです。
+  2スロット目以降はinputにすることはできません。
   <br><img src="./img/weightMultiText.png" width="400px"><br>
 
-* **Multi Text (`multiText`)**
-  標準的なテキストを結合するための、よりシンプルなバージョンです。テキストエリアを必要に応じて増減させ、カンマ区切りで結合された文字列を出力します。
+* **MultiText**
+  Weightが無いマルチ接続が可能になるタイプです。
+  2スロット目以降はinputにすることはできません。
   <br><img src="./img/multiText.png" width="400px"><br>
 
-* **Multi Text Concat (`multiTextConcat`)**
-  `multiText` と似ていますが、テキストエリアの代わりに **入力コネクタ（スロット）** を動的に提供します。他のテキストノードやプロンプトノードからの出力を1つの文字列にマージするのに最適です。
+* **MultiTextConcat**
+  **入力コネクタ（スロット）** を動的に提供します。
+  他のテキストノードやプロンプトノードからの出力を1つの文字列に結合します。
   <br><img src="./img/multiTextConcat.png" width="400px"><br>
 
 ---
 
 ### 2. リスト＆選択ユーティリティ (List & Selection Utilities)
 インタラクティブなUIを使用して、リスト内のアイテムを動的に処理、フィルタリング、抽出するために設計されたノードです。
-入力はANYになっていますが、テキスト系以外
+入力はANYになっていますが、TextとListが対象で画像入力は受け付けられません。
 
-* **Select Texts (`SelectTexts`)**
+* **SelectTexts**
   カンマ区切りの文字列またはリストを受け取り、（`(word:1.5)` などの入れ子になった強調構文を含めて）解析し、特定のリストのON/OFFを簡単に切り替えることができます。ノードは、アクティブ（ON）になっているアイテムのみを結合した文字列として出力します。
   <br><img src="./img/SelectTexts.png" width="400px"><br>
 
 
-* **Select Lists (`SelectLists`)**
-  `SelectTexts` と似ていますが、フラットなカンマ区切りの文字列（`text`）ごとに切り替えを行えます。
+* **SelectLists**
+  `SelectTexts` と似ていますが、こちらは入力されたリスト単位で切り替えを行います。
   <br><img src="./img/SelectLists.png" width="400px"><br>
 
-* **Get Name For LoRA Stack (`GetNameForLoraStack`)**
-  標準の ComfyUI LoRA Stack 出力を受け取り、現在アクティブになっている LoRA の名前のみをバッチリスト形式で抽出するユーティリティノードです。
+* **GetNameForLoraStack**
+  LoRA Stackの出力から、LoRAの名前のみをバッチリスト形式で抽出します。
+  [ComfyUI-Lora-Auto-Trigger-WordsのLoraTagsOnly](https://github.com/idrirap/ComfyUI-Lora-Auto-Trigger-Words)と組み合わせて使うことを想定しています。（これがやりたくて他のノードも作ったまである）
+  自動で引っ張ってきたタグを必要なものだけONにして出力して使います。
+  <br><img src="./img/GetNameForLoraStack.png" width="400px"><br>
 
 ---
 
 ### 3. ワークフロータイミング (Workflow Timing)
-* **Simple Timer (`SimpleTimer_sp_text`)**
-  実行時間を計測するためのユーティリティノードです。経過時間を出力します。最近のアップデートにより、長時間のキュー処理を追跡するためにバッチ全体の合計経過時間も出力できるようになりました。
+* **SimpleTimer**
+  実行時間を計測するためのユーティリティノードです。経過時間を出力します。
+  バッチ全体の合計時間と1回の時間を出力します。ウィジェットに表示されるのは1回分のみです。
+  Startの置く位置について。
+  どこにも繋がずに置いておく場合：最初からEndまでの時間。
+  Startをノードに挟んで使う場合：挟んだ位置からEndまでの時間。
+<br><img src="./img/SimpleTimer.png" width="400px"><br>
 
-## インストール方法
-
-1. ComfyUI の `custom_nodes` フォルダに移動します。
-2. このリポジトリをクローンします：
-   ```bash
-   git clone https://github.com/sp8999/ComfyUI-Text-Utils-sp.git
-   ```
-3. ComfyUI を再起動します。ノードは `text_utils_sp` カテゴリから利用可能になります。
 
 ---
 
 ## <a name="english-version"></a>🇬🇧 English
 
-## Features & Nodes
+## Installation
+
+1. Navigate to the `custom_nodes` folder in your ComfyUI directory.
+2. Open PowerShell or a terminal and clone the repository with the following command:
+   ```bash
+   git clone https://github.com/sp8999/ComfyUI-Text-Utils-sp.git
+   ```
+3. Restart ComfyUI. The nodes will be available in the `text_utils_sp` category.
+
+## Known Issues
+Optimized for Nodes 2.0. While it works with v1, some widgets may exhibit incorrect sizing.
+
+## Nodes and Features
 
 ### 1. Dynamic Text Combiners
-Nodes to combine multiple text inputs dynamically. These nodes feature special UI behaviors allowing you to easily add ("+") or remove ("-") inputs on the fly to match your workflow needs without cluttering the canvas.
+A collection of nodes for dynamically combining multiple text inputs.
 
-* **Weight Multi Text (`weightMultiText`)**
-  Allows dynamic combination of texts with individual weight sliders. Useful for prompt mixing where each component needs specific emphasis.
+* **Weight3Text**
+  Provides individual weight sliders to combine and output text. Useful for focusing on specific elements within a prompt.
+  <br><img src="./img/weight3Text.png" width="400px"><br>
 
-* **Multi Text (`multiText`)**
-  A simpler version of the dynamic combiner for standard text strings. Add or remove text areas as needed, and it outputs a comma-separated combined string.
+* **WeightMultiText**
+  A version that supports multiple connections.
+  Slots after the 2nd cannot be converted to inputs.
+  <br><img src="./img/weightMultiText.png" width="400px"><br>
 
-* **Multi Text Concat (`multiTextConcat`)**
-  Similar to `multiText`, but instead of text areas, it dynamically provides **input connectors** (slots). Ideal for merging outputs from other text or prompt nodes into a single string.
+* **MultiText**
+  A version that supports multiple connections without weights.
+  Slots after the 2nd cannot be converted to inputs.
+  <br><img src="./img/multiText.png" width="400px"><br>
+
+* **MultiTextConcat**
+  Dynamically provides **input connectors (slots)**.
+  Combines outputs from other text or prompt nodes into a single string.
+  <br><img src="./img/multiTextConcat.png" width="400px"><br>
 
 ---
 
 ### 2. List & Selection Utilities
-Nodes designed to handle, filter, and extract items from lists dynamically using an interactive UI.
+Nodes designed to dynamically process, filter, and extract items from lists using an interactive UI.
+The input is set to ANY, but it is intended for Text and Lists; image inputs are not supported.
 
-* **Select Texts (`SelectTexts`)**
-  Accepts a comma-separated string or list, parses it (including nested weights like `(word:1.5)`), and presents each element as an interactive toggle switch on the node itself. You can easily turn specific prompt parts ON/OFF. The node outputs the remaining active items combined as a string.
+* **SelectTexts**
+  Accepts a comma-separated string or list, parses it (including nested emphasis syntax like `(word:1.5)`), and allows for easy toggling of specific items ON/OFF. The node outputs only the active (ON) items as a combined string.
+  <br><img src="./img/SelectTexts.png" width="400px"><br>
 
-* **Select Lists (`SelectLists`)**
-  Similar to `SelectTexts`, but built for processing lists recursively. It outputs both a flat comma-separated string (`text`) AND the filtered Python list array itself (`list`), preserving data types for downstream batch processing or LoRA stacking.
+* **SelectLists**
+  Similar to `SelectTexts`, but handles toggling at the list item level.
+  <br><img src="./img/SelectLists.png" width="400px"><br>
 
-* **Get Name For LoRA Stack (`GetNameForLoraStack`)**
-  A utility node that takes a standard ComfyUI LoRA Stack output and extracts just the names of the active LoRAs in a batched list format. Useful for displaying which LoRAs are currently active in the workflow.
+* **GetNameForLoraStack**
+  Extracts only the LoRA names from a LoRA Stack output in batch list format.
+  Designed for use with [LoraTagsOnly](https://github.com/idrirap/ComfyUI-Lora-Auto-Trigger-Words). (This node set was primarily created to achieve this functionality).
+  Toggle only the necessary tags from the automatically retrieved list for output.
+  <br><img src="./img/GetNameForLoraStack.png" width="400px"><br>
 
 ---
 
 ### 3. Workflow Timing
-* **Simple Timer (`SimpleTimer_sp_text`)**
-  A utility node to measure execution time. It outputs the elapsed time. Recent updates allow it to output the total elapsed time for a batch to track long-running queue processing.
-
-## Installation
-
-1. Navigate to your ComfyUI `custom_nodes` folder.
-2. Clone this repository:
-   ```bash
-   git clone https://github.com/sp8999/ComfyUI-Text-Utils-sp.git
-   ```
-3. Restart ComfyUI. The nodes will be available under the `text_utils_sp` category.
+* **SimpleTimer**
+  A utility node to measure execution time. Outputs the elapsed duration.
+  Outputs both the total batch time and the time for a single execution. Only the single execution time is shown in the widget.
+  Placement of the Start node:
+  - Not connected: Measures from the start of the workflow to the End node.
+  - Inserted between nodes: Measures from that specific position to the End node.
+<br><img src="./img/SimpleTimer.png" width="400px"><br>

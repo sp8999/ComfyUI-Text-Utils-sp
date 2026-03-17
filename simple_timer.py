@@ -22,6 +22,7 @@ class SimpleTimerStart:
     RETURN_NAMES = ("signal",)
     FUNCTION = "start_timer"
     CATEGORY = "text_utils_sp"
+    OUTPUT_NODE = True
 
     @classmethod
     def IS_CHANGED(s, **kwargs):

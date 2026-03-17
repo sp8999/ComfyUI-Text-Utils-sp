@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-text-utils-sp"
+description = "Auto-tagging in sync with LoraTagsOnly, or use it as a simple text manipulation tool.Effortlessly flatten lists or output specific selections.Convert comma-separated text into individual toggle buttons for easy selective output."
+version = "1.0.0"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/sp8999/ComfyUI-Text-Utils-sp"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "sp8999"
+DisplayName = "ComfyUI-Text-Utils-sp"
+Icon = ""

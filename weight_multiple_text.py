@@ -1,6 +1,6 @@
 from . import utils
 
-class weight3xText:
+class weight3Text:
 
     def __init__(self):
         self.combined_text=""
@@ -208,7 +208,7 @@ class multiTextConcat:
 
 
 NODE_CLASS_MAPPINGS = {
-    "weight3xText": weight3xText,
+    "weight3Text": weight3Text,
     "weightMultiText": weightMultiText,
     "multiText": multiText,
     "multiTextConcat": multiTextConcat,
