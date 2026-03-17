@@ -1,0 +1,396 @@
+{
+  "id": "3c9149cb-2616-41cc-9704-b143eab916c8",
+  "revision": 0,
+  "last_node_id": 36,
+  "last_link_id": 54,
+  "nodes": [
+    {
+      "id": 19,
+      "type": "SelectLists",
+      "pos": [
+        -6852.002259875466,
+        668.7745457500191
+      ],
+      "size": [
+        225,
+        177.984375
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ANY",
+          "type": "*",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "list",
+          "shape": 6,
+          "type": "*",
+          "links": []
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            49
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SelectLists",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        "{\"0\":true,\"1\":true}"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "SelectTexts",
+      "pos": [
+        -6849.64663243406,
+        946.4523045390815
+      ],
+      "size": [
+        225,
+        157.984375
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ANY",
+          "type": "*",
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "selected",
+          "type": "STRING",
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SelectTexts",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        "{\"big eyes\":true,\"anime eyes\":false,\"fig\":true,\"nendo\":false,\"figma\":true}"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "GetNameForLoraStack",
+      "pos": [
+        -7411.099274967275,
+        679.1006538574412
+      ],
+      "size": [
+        225,
+        71.390625
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "nameBatch",
+          "shape": 6,
+          "type": "*",
+          "links": [
+            41,
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNameForLoraStack",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 26,
+      "type": "PreviewAny",
+      "pos": [
+        -7402.263020084462,
+        803.8247352783396
+      ],
+      "size": [
+        234.609375,
+        209.921875
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 41
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 27,
+      "type": "LoraTagsOnly",
+      "pos": [
+        -7145.20717930906,
+        672.6161366313668
+      ],
+      "size": [
+        259.71875,
+        186.015625
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "override_lora_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "civitai_tags_list",
+          "type": "LIST",
+          "links": [
+            47,
+            50
+          ]
+        },
+        {
+          "name": "meta_tags_list",
+          "type": "LIST",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraTagsOnly",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        "AI_Assistant\\anime01.safetensors",
+        false,
+        false
+      ]
+    },
+    {
+      "id": 28,
+      "type": "PreviewAny",
+      "pos": [
+        -6594.2433972817225,
+        667.0951179687694
+      ],
+      "size": [
+        311.09375,
+        227.265625
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 49
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 30,
+      "type": "PreviewAny",
+      "pos": [
+        -6590.814777896957,
+        945.523737353535
+      ],
+      "size": [
+        311.09375,
+        227.265625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 51
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 36,
+      "type": "Note",
+      "pos": [
+        -7420.238533068822,
+        532.4189915508005
+      ],
+      "size": [
+        225,
+        91.390625
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "何かのLoRA Stackにつないでください"
+      ],
+      "color": "#c09430",
+      "bgcolor": "rgba(24,24,27,.9)"
+    }
+  ],
+  "links": [
+    [
+      41,
+      18,
+      0,
+      26,
+      0,
+      "*"
+    ],
+    [
+      42,
+      18,
+      0,
+      27,
+      1,
+      "COMBO"
+    ],
+    [
+      47,
+      27,
+      0,
+      19,
+      0,
+      "LIST"
+    ],
+    [
+      49,
+      19,
+      1,
+      28,
+      0,
+      "STRING"
+    ],
+    [
+      50,
+      27,
+      0,
+      20,
+      0,
+      "LIST"
+    ],
+    [
+      51,
+      20,
+      0,
+      30,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "ds": {
+      "scale": 0.9090909090909094,
+      "offset": [
+        8387.381507922339,
+        -225.2544942706796
+      ]
+    },
+    "workflowRendererVersion": "Vue",
+    "frontendVersion": "1.41.20"
+  },
+  "version": 0.4
+}
