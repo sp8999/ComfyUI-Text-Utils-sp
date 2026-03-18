@@ -136,7 +136,7 @@ A collection of nodes for dynamically combining multiple text inputs.
   Combines outputs from other text or prompt nodes into a single string.
   <br><img src="./img/multiTextConcat.png" width="400px"><br>
 
----
+<br><br>
 
 ### 2. List & Selection Utilities
 Nodes designed to dynamically process, filter, and extract items from lists using an interactive UI.
@@ -156,7 +156,7 @@ The input is set to ANY, but it is intended for Text and Lists; image inputs are
   Toggle only the necessary tags from the automatically retrieved list for output.
   <br><img src="./img/GetNameForLoraStack.png" width="400px"><br>
 
----
+<br><br>
 
 ### 3. Output Time Measurement
 
