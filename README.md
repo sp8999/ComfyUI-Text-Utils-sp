@@ -61,12 +61,13 @@ Nodes2.0で調整しています。v1でも動作はしますが、一部のウ�
 入力はANYになっていますが、TextとListが対象で画像入力は受け付けられません。
 
 * **SelectTexts**
-  カンマ区切りの文字列またはリストを受け取り、（`(word:1.5)` などの入れ子になった強調構文を含めて）解析し、特定のテキストのON/OFFを簡単に切り替えることができます。ノードは、アクティブ（ON）になっているアイテムのみを結合した文字列として出力します。
+  カンマ区切りの文字列またはリストを受け取り、（`(word:1.5)` などの入れ子になった強調構文を含めて）解析し、特定のテキストのON/OFFを簡単に切り替えることができます。ノードは、アクティブ（ON）になっているアイテムのみを結合した文字列として出力します。単純なリストフラット化としても使えます。
   <br><img src="./img/SelectTexts.png" width="400px"><br><br>
 
 
 * **SelectLists**
   `SelectTexts` と似ていますが、こちらは入力されたリスト単位で切り替えを行います。
+  単純なリストフラット化としても使えます。
   <br><img src="./img/SelectLists.png" width="400px"><br><br>
 
 * **GetNameForLoraStack**
@@ -144,10 +145,12 @@ The input is set to ANY, but it is intended for Text and Lists; image inputs are
 
 * **SelectTexts**
   Accepts a comma-separated string or list, parses it (including nested emphasis syntax like `(word:1.5)`), and allows for easy toggling of specific items ON/OFF. The node outputs only the active (ON) items as a combined string.
+  It can also be used as a simple list flattener.
   <br><img src="./img/SelectTexts.png" width="400px"><br>
 
 * **SelectLists**
   Similar to `SelectTexts`, but handles toggling at the list item level.
+  It can also be used as a simple list flattener.
   <br><img src="./img/SelectLists.png" width="400px"><br>
 
 * **GetNameForLoraStack**

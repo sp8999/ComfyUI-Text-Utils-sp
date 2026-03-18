@@ -202,7 +202,7 @@ class SelectTexts:
 
     TITLE = "Select Texts"
     RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("selected",)
+    RETURN_NAMES = ("text",)
     INPUT_IS_LIST = True
     FUNCTION = "run"
     CATEGORY = "text_utils_sp"
