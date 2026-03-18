@@ -10,6 +10,6 @@ Repository = "https://github.com/sp8999/ComfyUI-Text-Utils-sp"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = "sp8999"
+PublisherId = "sp8999-log"
 DisplayName = "ComfyUI-Text-Utils-sp"
 Icon = ""
