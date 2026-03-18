@@ -88,6 +88,8 @@ Nodes2.0で調整しています。v1でも動作はしますが、一部のウ�
   Startをノードに挟んで使う場合：挟んだ位置からEndまでの時間。
 <br><img src="./img/SimpleTimer.png" width="400px"><br><br>
 
+### ブログでノードの使用例なども軽く解説
+[ブログ](https://sp8999.com/comfyui/2026/03/19/2416/)
 
 ---
 
@@ -170,3 +172,6 @@ The input is set to ANY, but it is intended for Text and Lists; image inputs are
   - Not connected: Measures from the start of the workflow to the End node.
   - Inserted between nodes: Measures from that specific position to the End node.
 <br><img src="./img/SimpleTimer.png" width="400px"><br>
+
+### 4. Blog where the node usage example is also briefly explained
+[Blog](https://sp8999.com/comfyui/2026/03/19/2416/)
