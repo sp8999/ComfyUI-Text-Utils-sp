@@ -126,7 +126,7 @@ class SelectLists:
         included_units = []
         for i, item in enumerate(ANY):
             key = str(i)
-            if states.get(key, True):  # デフォルトはTrue（ON）
+            if states.get(key, True):
                 included_units.append(item)
                 
         if included_units:

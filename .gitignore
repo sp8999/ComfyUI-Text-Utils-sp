@@ -11,3 +11,6 @@ venv/
 .idea/
 .DS_Store
 Thumbs.db
+task.md
+implementation_plan.md
+./docs/
